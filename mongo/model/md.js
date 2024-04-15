@@ -4,7 +4,8 @@ const Schema=mongoose.Schema
 
 const User=new Schema({
     user :{type:String},
-    pass :{type:String}
+    pass :{type:String},
+    admin:{type:Boolean,default:false}
 },{
     timestamps:true
 })
