@@ -2,12 +2,12 @@ const mongoose=require('mongoose')
 const dotenv =require('dotenv')
 dotenv.config()
 async function connect(){
-    await mongoose.connect((process.env.MONGODB_URL),{useNewUrlParser:true,useUnifiedTopology:true})
+    await mongoose.connect((process.env.MONGODB_URL))
      .then(() => {
-        console.log('Kết nối thành công đến cơ sở dữ liệu');
+        console.log('connect success');
     })
     .catch((error) => {
-        console.error('Lỗi kết nối đến cơ sở dữ liệu:', error);
+        console.error('fail to connect', error);
     });
 }
 

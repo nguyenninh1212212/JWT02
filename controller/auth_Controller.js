@@ -5,7 +5,9 @@ const User =require('../mongo/model/md')
 const autherController={
     registerUser:async (req,res)=>{
          try{
+            //àm này tạo ra một giá trị salt để sử dụng trong quá trình băm mật khẩu. Tham số 10 là mức độ số lần lặp lại được sử dụng trong quá trình tạo salt
             const salt=await bcrypt.genSalt(10)
+            //Khi đã có giá trị salt, hàm bcrypt.hash() sẽ sử dụng salt này để băm mật khẩu được gửi từ phía client (trong trường hợp này, được truy cập thông qua req.body.pass)
             const hashed=await bcrypt.hash(req.body.pass,salt)
 
             //create new user
